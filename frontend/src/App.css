@@ -1,0 +1,249 @@
+body{
+margin:0;
+padding:0;
+font-family: "Poppins", sans-serif;
+}
+
+/* Login section */
+.auth-page{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.login-container{
+
+background:#ffffff;   
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+width:350px;
+text-align:center;
+color:#333;
+
+}
+
+
+
+.login-container-header h2{
+margin-bottom:25px;
+font-size:28px;
+font-weight:600;
+}
+
+
+
+.login-container input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border: 1px solid black;
+outline:none;
+border-radius:8px;
+font-size:14px;
+background:rgba(255,255,255,0.9);
+
+}
+
+/* Button */
+.login-button{
+
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:8px;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+/* Button Hover */
+.login-button :hover{
+
+background:#333;
+color:white;
+transform:scale(1.03);
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.container{
+width:85%;
+padding:30px;
+}
+
+.container h2{
+font-size:24px;
+}
+
+}
+
+@media(max-width:480px){
+
+.container{
+width:90%;
+padding:25px;
+}
+
+}
+
+
+
+/* Register Container */
+
+.register-container{
+background:#ffffff;
+padding:40px;
+border-radius:15px;
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+width:350px;
+text-align:center;
+}
+
+
+
+.register-header{
+margin-bottom:25px;
+font-size:28px;
+font-weight:600;
+color:#333;
+}
+
+
+
+.register-container input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:14px;
+outline:none;
+}
+
+.register-container input:focus{
+border-color:#4facfe;
+box-shadow:0 0 5px rgba(79,172,254,0.5);
+}
+
+/* Button */
+.register-button{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:8px;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+/* Hover Effect */
+.register-button:hover{
+transform:scale(1.03);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+
+.navbar{
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#4a6cf7;
+box-sizing:border-box;
+color:white;
+
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin:0 10px;
+font-weight:500;
+}
+
+.navbar a:hover{
+opacity:0.8;
+}
+
+.navbar button{
+
+background:white;
+color:#4f6ef7;
+border:none;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+font-weight:500;
+
+}
+
+.dashboard{
+
+text-align:center;
+margin-top:100px;
+
+}
+
+.dashboard h1{
+
+font-size:36px;
+
+}
+
+.dashboard button{
+
+margin-top:20px;
+padding:12px 25px;
+background:#4a6cf7;
+color:white;
+border:none;
+border-radius:5px;
+
+}
+
+.question-card{
+
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+
+}
+
+.btn-group button{
+
+margin:10px;
+padding:10px 20px;
+
+}
+
+.result-container{
+
+text-align:center;
+margin-top:100px;
+
+}
+
+.result-container h2{
+
+color:#4a6cf7;
+
+}
