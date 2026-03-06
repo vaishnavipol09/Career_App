@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
+require("dotenv").config();
 
 const connectDB = require("./config/db");
 
@@ -8,17 +10,30 @@ const testRoutes = require("./routes/testRoutes");
 const resultRoutes = require("./routes/resultRoutes");
 
 const app = express();
-require("dotenv").config();
 
+// MongoDB connect
 connectDB();
 
+// middleware
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/auth",authRoutes);
-app.use("/api/test",testRoutes);
-app.use("/api/result",resultRoutes);
+// API routes
+app.use("/api/auth", authRoutes);
+app.use("/api/test", testRoutes);
+app.use("/api/result", resultRoutes);
 
-app.listen(5000,()=>{
-console.log("Server running on port 5000");
+// React build serve
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
+
+// deployment port
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
