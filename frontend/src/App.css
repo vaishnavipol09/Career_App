@@ -235,15 +235,36 @@ padding:10px 20px;
 
 }
 
+
+
+
 .result-container{
 
-text-align:center;
-margin-top:100px;
+max-width:900px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+margin-top:40px;
 
 }
 
 .result-container h2{
 
 color:#4a6cf7;
+margin-top:20px;
+
+}
+
+.result-container ul{
+
+padding-left:20px;
+
+}
+
+.result-container li{
+
+margin:5px 0;
 
 }

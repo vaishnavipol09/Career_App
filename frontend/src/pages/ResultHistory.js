@@ -31,12 +31,21 @@ return(
 <h2>Your Test History</h2>
 
 {results.map((r,index)=>(
+
 <div key={index}>
 
 <p>Career: {r.career}</p>
-<p>Score: {r.score}</p>
+<p>Interest: {r.interest}</p>
+<p>Aptitude: {r.aptitude}</p>
+<p>Personality: {r.personality}</p>
+<p>Values: {r.values}</p>
+<p>Leadership: {r.leader}</p>
+<p>Future Scope: {r.future}</p>
+
+<hr/>
 
 </div>
+
 ))}
 
 </div>

@@ -5,37 +5,55 @@ import {useNavigate} from "react-router-dom";
 
 const questions = [
 
-"Are you enjoying solving programming problems?",
-"Are you like to analyzing data?",
-"Have you create design?",
-"How you manage teamwork?",
-"Have you build web applications?"
+{question:"Do you enjoy coding?", type:"interest"},
+{question:"Are you good at logical reasoning?", type:"aptitude"},
+{question:"Do you prefer analytical thinking?", type:"personality"},
+{question:"Have you create design?", type:"values"},
+{question:"How you manage teamwork?", type:"leader"},
+{question:"Have you build web applications?", type:"future"}
 
-];
+]
+
 
 function Test(){
 
 const navigate = useNavigate();
-const [score,setScore] = useState(0);
+const [scores,setScores] = useState({
+
+interest:0,
+aptitude:0,
+personality:0,
+values:0,
+leader:0,
+future:0
+
+})
 const [index,setIndex] = useState(0);
 
 const nextQuestion = (value)=>{
 
-setScore(score + value);
+const type = questions[index].type
+
+const updatedScores = {
+...scores,
+[type]: scores[type] + value
+}
+
+setScores(updatedScores)
 
 if(index + 1 < questions.length){
 
-setIndex(index + 1);
+setIndex(index + 1)
 
 }else{
 
-submitTest(score + value);
+submitTest(updatedScores)
 
 }
 
-};
+}
 
-const submitTest = async(finalScore)=>{
+const submitTest = async(updatedScores)=>{
 
 try{
 
@@ -47,30 +65,29 @@ method:"POST",
 headers:{
 "Content-Type":"application/json"
 },
+
 body:JSON.stringify({
+
 userId:userId,
-score:finalScore
+scores:updatedScores
+
 })
 
-});
+})
 
-if(!res.ok){
-throw new Error("API error");
-}
+const data = await res.json()
 
-const data = await res.json();
+localStorage.setItem("career",data.career)
 
-localStorage.setItem("career",data.career);
-
-navigate("/result");
+navigate("/result")
 
 }catch(error){
 
-console.log(error);
+console.log(error)
 
 }
 
-};
+}
 
 return(
 
@@ -81,7 +98,7 @@ return(
 <div className="test-container">
 
 <QuestionCard
-question={questions[index]}
+question={questions[index].question}
 onYes={()=>nextQuestion(1)}
 onNo={()=>nextQuestion(0)}
 />

@@ -7,22 +7,49 @@ router.post("/submit", async (req,res)=>{
 
 try{
 
-const {userId,score} = req.body;
+const {userId,scores} = req.body
 
-let career="";
+let career=""
 
-if(score >=8){
+// total score calculate
+const total =
+scores.interest +
+scores.aptitude +
+scores.personality +
+scores.values +
+scores.leader +
+scores.future
+
+// career logic
+if(total >=5 && scores.interest >=1){
+
 career="Software Developer"
-}else if(score>=5){
+
+}
+else if(scores.personality >=2 || scores.leader >=2){
+
 career="Business Analyst"
-}else{
+
+}
+else{
+
 career="Creative Designer"
+
 }
 
 const result = new Result({
-userId: new mongoose.Types.ObjectId(userId),
-score,
+
+userId:new mongoose.Types.ObjectId(userId),
+
+interest:scores.interest,
+aptitude:scores.aptitude,
+personality:scores.personality,
+values:scores.values,
+leader:scores.leader,
+future:scores.future,
+
 career
+
 })
 
 await result.save()
@@ -38,6 +65,8 @@ res.status(500).json({msg:"Server Error"})
 
 })
 
+
+// user history
 router.get("/history/:userId", async (req,res)=>{
 
 try{

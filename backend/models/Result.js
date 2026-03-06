@@ -2,28 +2,25 @@ const mongoose = require("mongoose");
 
 const resultSchema = new mongoose.Schema({
 
-  userId:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"User",
-    required:true
-  },
+userId:{
+type:mongoose.Schema.Types.ObjectId,
+ref:"User",
+required:true
+},
 
-  interest:{
-    type:String
-  },
+interest:Number,
+aptitude:Number,
+personality:Number,
+values:Number,
+leader:Number,
+future:Number,
 
-  personality:{
-    type:String
-  },
+career:String,
 
-  career:{
-    type:String
-  },
-
-  createdAt:{
-    type:Date,
-    default:Date.now
-  }
+createdAt:{
+type:Date,
+default:Date.now
+}
 
 });
 
